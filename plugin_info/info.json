@@ -1,0 +1,29 @@
+{
+  "id": "mqttLinky",
+  "name": "MQTT Linky",
+  "description": {
+    "fr_FR" : "Plugin permettant la récupération de la téléinformation Linky dans Jeedom",
+    "en_US" : "Plugin allowing the recovery of Linky teleinformation in Jeedom"
+  },
+  "licence": "AGPL",
+  "author": "Wocha",
+  "require": "4.2",
+  "category": "energy",
+  "hasDependency": true,
+  "hasOwnDeamon": true,
+  "maxDependancyInstallTime": 90,
+  "changelog": "https://wocha-fr.github.io/jeedom-linky/#language#/changelog",
+  "documentation": "https://wocha-fr.github.io/jeedom-linky/#language#/",
+  "changelog_beta": "https://wocha-fr.github.io/jeedom-linky/#language#/changelog_beta",
+  "documentation_beta": "https://wocha-fr.github.io/jeedom-linky/#language#/index_beta",
+  "issue": "https://github.com/WoCha-FR/jeedom-linky/issues",
+  "language": ["fr_FR","en_US"],
+  "compatibility": [
+      "rpi",
+      "docker",
+      "diy",
+      "v4",
+      "atlas",
+      "smart"
+  ]
+}
