@@ -107,6 +107,7 @@ class mqttLinky extends eqLogic {
     $appjs_path = realpath(dirname(__FILE__) . '/../../resources');
     chdir($appjs_path . '/mqtt4teleinfo');
     $cmd = ' /usr/bin/node ' . $appjs_path . '/mqtt4teleinfo/index.js -z';
+		$cmd .= ' -t '.config::byKey('mqtt::topic', __CLASS__, 'linky');
     $cmd .= ' -a '.$port;
     $cmd .= ' -b '.config::byKey('mqttLinky::type', __CLASS__, 'historic');
     $cmd .= ' -u '.$mqtt_url;
