@@ -271,7 +271,7 @@ class mqttLinkyCmd extends cmd {
 			case "PAPP":
 			case "SINSTS":
 			case "SINSTS1":
-			case "SINSTS1":
+			case "SINSTS2":
 			case "SINSTS3":
 			case "SINSTI":
 				log::add('mqttLinky', 'debug', __('Champ de puissance apparente VA', __FILE__));
