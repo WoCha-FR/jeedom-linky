@@ -34,6 +34,12 @@ function mqttLinky_update() {
     $plugin->deamon_changeAutoMode(0);
     $plugin->deamon_info(0);
   }
+  // Mise à jour des paramètres des commandes créées
+  foreach (eqLogic::byType('mqttLinky') as $eqLogic) {
+    foreach ($eqLogic->getCmd() as $cmd) {
+      $cmd->save();
+    }
+  }
 }
 
 function mqttLinky_remove() {
