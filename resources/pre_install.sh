@@ -7,10 +7,11 @@ PROGRESS_FILE=/tmp/jeedom_install_in_progress_mqttLinky
 echo 5 > ${PROGRESS_FILE}
 
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+cd ${BASEDIR}
 source ../core/config/mqttLinky.config.ini &> /dev/null
 echo "Version requise : ${mqttLinkyRequire}"
 
-cd ${BASEDIR}
 if [ -d "${BASEDIR}/mqtt4teleinfo" ]; then
   rm -R ${BASEDIR}/mqtt4teleinfo
 fi
