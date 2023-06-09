@@ -81,7 +81,11 @@ class mqttLinky extends eqLogic {
     } else {
       if (config::byKey('lastDependancyInstallTime', __CLASS__) == '') {
         $return['state'] = 'nok';
+      } else if (!file_exists(__DIR__ . '/../../resources/mqtt4teleinfo/index.js')) {
+        $return['state'] = 'nok';
       } else if (!is_dir(realpath(dirname(__FILE__) . '/../../resources/mqtt4teleinfo/node_modules'))) {
+        $return['state'] = 'nok';
+      } else if (config::byKey('mqttLinkyRequire', __CLASS__) != config::byKey('mqttLinkyVersion', __CLASS__)) {
         $return['state'] = 'nok';
       }
     }
@@ -184,6 +188,11 @@ class mqttLinky extends eqLogic {
 				$return['launchable_message'] = __('Le démon MQTT Manager n\'est pas démarré', __FILE__);
 			}
 		}
+		// Dépendances
+		if (self::dependancy_info()['state'] == 'nok') {
+			$return['launchable'] = 'nok';
+			$return['launchable_message'] = __('Dépendances non installées.', __FILE__);
+		}
     return $return;
   }
 
@@ -211,6 +220,9 @@ class mqttLinky extends eqLogic {
     }
   }
 
+	public static function dependancy_end() {
+		config::save('mqttLinkyVersion', config::byKey('mqttLinkyRequire', __CLASS__), __CLASS__);
+	}
 }
 
 class mqttLinkyCmd extends cmd {

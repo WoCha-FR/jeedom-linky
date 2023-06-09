@@ -7,6 +7,8 @@ PROGRESS_FILE=/tmp/jeedom_install_in_progress_mqttLinky
 echo 5 > ${PROGRESS_FILE}
 
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source ../core/config/mqttLinky.config.ini &> /dev/null
+echo "Version requise : ${mqttLinkyRequire}"
 
 cd ${BASEDIR}
 if [ -d "${BASEDIR}/mqtt4teleinfo" ]; then
@@ -14,7 +16,8 @@ if [ -d "${BASEDIR}/mqtt4teleinfo" ]; then
 fi
 
 echo 5 > ${PROGRESS_FILE}
-git clone --depth 1 https://github.com/WoCha-FR/mqtt4teleinfo.git ${BASEDIR}/mqtt4teleinfo
+curl -L -s https://github.com/WoCha-FR/mqtt4teleinfo/archive/refs/tags/${mqttLinkyRequire}.tar.gz | tar zxf -
+mv mqtt4teleinfo-${mqttLinkyRequire} mqtt4teleinfo
 
 echo 15 > ${PROGRESS_FILE}
 echo "Pre install finished"

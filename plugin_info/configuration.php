@@ -25,6 +25,29 @@ if (!isConnect()) {
 <form class="form-horizontal">
   <fieldset>
     <div class="form-group">
+      <label class="col-md-4 control-label">{{Version Librairie Téléinfo}}</label>
+      <div class="col-md-3">
+      <?php
+        $file = dirname(__FILE__) . '/../resources/mqtt4teleinfo/package.json';
+        $package = array();
+        if (file_exists($file)) {
+          $package = json_decode(file_get_contents($file), true);
+        }
+        if (isset($package['version'])){
+          config::save('mqttLinkyVersion', $package['version'], 'mqttLinky');
+        }
+        $localVersion = config::byKey('mqttLinkyVersion', 'mqttLinky', 'N/A');
+        $wantedVersion = config::byKey('mqttLinkyRequire', 'mqttLinky', '');
+        if ($localVersion != $wantedVersion) {
+          echo '<span class="label label-warning">' . $localVersion . '</span><br>';
+          echo "<div class='alert alert-danger text-center'>{{Veuillez relancer les dépendances pour mettre à jour la librairie. Relancez ensuite le démon pour voir la nouvelle version.}}</div>";
+        } else {
+          echo '<span class="label label-success">' . $localVersion . '</span><br>';
+        }
+      ?>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="col-md-4 control-label">{{Topic racine}}</label>
       <div class="col-md-3">
         <input class="configKey form-control" data-l1key="mqtt::topic" />
@@ -77,5 +100,8 @@ if (!isConnect()) {
     if ($(this).value() != '') {
       $('.demon_mode.' + $(this).value()).show();
     }
+  })
+  $('body').off('mqttLinky::dependancy_end').on('mqttLinky::dependancy_end', function(_event, _options) {
+    window.location.reload()
   })
 </script>

@@ -24,7 +24,8 @@
     "Le plugin MQTT Manager n'est pas installé": "Le plugin MQTT Manager n'est pas installé",
     "Le port n'est pas configuré": "Le port n'est pas configuré",
     "Configuration d'une commande": "Configuration d'une commande",
-    "Veuillez vérifier la configuration": "Veuillez vérifier la configuration"
+    "Veuillez vérifier la configuration": "Veuillez vérifier la configuration",
+    "Dépendances non installées.": "Dépendances non installées."
   },
   "plugins\/mqttLinky\/desktop\/js\/mqttLinky.js": {
     "Afficher": "Afficher",
@@ -86,6 +87,8 @@
     "Standard": "Standard",
     "Sélectionner le type de téléinformation du compteur": "Sélectionner le type de téléinformation du compteur",
     "Topic racine": "Topic racine",
-    "Type de téléinformation": "Type de téléinformation"
+    "Type de téléinformation": "Type de téléinformation",
+    "Version Librairie RING": "Version Librairie Téléinfo",
+    "Veuillez relancer les dépendances pour mettre à jour la librairie. Relancez ensuite le démon pour voir la nouvelle version.": "Veuillez relancer les dépendances pour mettre à jour la librairie. Relancez ensuite le démon pour voir la nouvelle version."
   }
 }
