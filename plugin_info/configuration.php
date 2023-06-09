@@ -24,7 +24,7 @@ if (!isConnect()) {
 ?>
 <form class="form-horizontal">
   <fieldset>
-    <div class="form-group">
+    <div class="form-group demon_mode local">
       <label class="col-md-4 control-label">{{Version Librairie Téléinfo}}</label>
       <div class="col-md-3">
       <?php
