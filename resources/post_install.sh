@@ -7,9 +7,11 @@ PROGRESS_FILE=/tmp/jeedom_install_in_progress_mqttLinky
 echo 50 > ${PROGRESS_FILE}
 
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd ${BASEDIR}
+source ../core/config/mqttLinky.config.ini &> /dev/null
+echo "Version requise : ${mqttLinkyRequire}"
 
-cd ${BASEDIR}/mqtt4teleinfo
-npm ci
+npm i mqtt4teleinfo@${mqttLinkyRequire} --no-save
 
 echo 90 > ${PROGRESS_FILE}
-chown www-data:www-data -R ${BASEDIR}/mqtt4teleinfo
+chown www-data:www-data -R ${BASEDIR}/node_modules

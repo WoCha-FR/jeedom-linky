@@ -8,17 +8,12 @@ echo 5 > ${PROGRESS_FILE}
 
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-cd ${BASEDIR}
-source ../core/config/mqttLinky.config.ini &> /dev/null
-echo "Version requise : ${mqttLinkyRequire}"
-
 if [ -d "${BASEDIR}/mqtt4teleinfo" ]; then
   rm -R ${BASEDIR}/mqtt4teleinfo
 fi
-
-echo 5 > ${PROGRESS_FILE}
-curl -L -s https://github.com/WoCha-FR/mqtt4teleinfo/archive/refs/tags/${mqttLinkyRequire}.tar.gz | tar zxf -
-mv mqtt4teleinfo-${mqttLinkyRequire} mqtt4teleinfo
+if [ -d "${BASEDIR}/node_modules" ]; then
+  rm -R ${BASEDIR}/node_modules
+fi
 
 echo 15 > ${PROGRESS_FILE}
 echo "Pre install finished"
