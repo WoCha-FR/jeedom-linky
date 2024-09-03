@@ -81,9 +81,9 @@ class mqttLinky extends eqLogic {
     } else {
       if (config::byKey('lastDependancyInstallTime', __CLASS__) == '') {
         $return['state'] = 'nok';
-      } else if (!file_exists(__DIR__ . '/../../resources/mqtt4teleinfo/index.js')) {
+      } else if (!file_exists(__DIR__ . '/../../resources/node_modules/')) {
         $return['state'] = 'nok';
-      } else if (!is_dir(realpath(dirname(__FILE__) . '/../../resources/mqtt4teleinfo/node_modules'))) {
+      } else if (!file_exists(__DIR__ . '/../../resources/node_modules/mqtt4teleinfo/index.js')) {
         $return['state'] = 'nok';
       } else if (config::byKey('mqttLinkyRequire', __CLASS__) != config::byKey('mqttLinkyVersion', __CLASS__)) {
         $return['state'] = 'nok';
@@ -110,9 +110,9 @@ class mqttLinky extends eqLogic {
     $mqtt_url .= $mqttInfos['ip'].':'.$mqttInfos['port'];
 
     $port = jeedom::getUsbMapping(config::byKey('mqttLinky::port', __CLASS__));
-    $appjs_path = realpath(dirname(__FILE__) . '/../../resources');
-    chdir($appjs_path . '/mqtt4teleinfo');
-    $cmd = ' /usr/bin/node ' . $appjs_path . '/mqtt4teleinfo/index.js -z';
+    $appjs_path = realpath(dirname(__FILE__) . '/../../resources/node_modules/mqtt4teleinfo');
+    chdir($appjs_path);
+    $cmd = ' /usr/bin/node ' . $appjs_path . '/index.js -z';
     $cmd .= ' -t '.config::byKey('mqtt::topic', __CLASS__, 'linky');
     $cmd .= ' -a '.$port;
     $cmd .= ' -b '.config::byKey('mqttLinky::type', __CLASS__, 'historic');
