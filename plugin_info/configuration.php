@@ -63,7 +63,7 @@ if (!isConnect()) {
       </div>
     </div>
     <div class="form-group demon_mode local">
-		  <label class="col-md-4 control-label">{{Port du compteur}}
+      <label class="col-md-4 control-label">{{Port du compteur}}
         <sup><i class="fas fa-question-circle tooltips" title="{{Renseigner le port utilisé pour se connecter au Linky}}"></i></sup>
       </label>
       <div class="col-md-3">

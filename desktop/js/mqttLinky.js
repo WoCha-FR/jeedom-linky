@@ -97,7 +97,8 @@ var tag_standard = [
   {etiquette:"NJOURF",name:"Numéro du jour en cours calendrier fournisseur"},
   {etiquette:"NJOURF+1",name:"Numéro du prochain jour calendrier fournisseur"},
   {etiquette:"PJOURF+1",name:"Profil du prochain jour calendrier fournisseur"},
-  {etiquette:"PPOINTE",name:"Profil du prochain jour de pointe"}
+  {etiquette:"PPOINTE",name:"Profil du prochain jour de pointe"},
+  {etiquette:"PRMS",name:"Puissance active calculée"}
 ];
 var tag_standard_tri = [
   {etiquette:"IRMS2",name:"Courant efficace, phase 2"},
@@ -114,7 +115,11 @@ var tag_standard_tri = [
   {etiquette:"SMAXSN2-1",name:"Puissance app max. soutirée n-1 phase 2"},
   {etiquette:"SMAXSN3-1",name:"Puissance app max. soutirée n-1 phase 3"},
   {etiquette:"UMOY2",name:"Tension moy. ph. 2"},
-  {etiquette:"UMOY3",name:"Tension moy. ph. 3"}
+  {etiquette:"UMOY3",name:"Tension moy. ph. 3"},
+  {etiquette:"IRMS",name:"Courant efficace calculé, 3 phases"},
+  {etiquette:"PRMS1",name:"Puissance active calculée, phase 1"},
+  {etiquette:"PRMS2",name:"Puissance active calculée, phase 2"},
+  {etiquette:"PRMS3",name:"Puissance active calculée, phase 3"}
 ];
 var tag_standard_status = [
   {etiquette:"STGE01",name:"STGE01 - Contact sec"},
