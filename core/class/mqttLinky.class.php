@@ -383,9 +383,15 @@ class mqttLinkyCmd extends cmd {
         $this->setUnite('A');
         $this->setGeneric_type('GENERIC_INFO');
         break;
-      /* Champs d'informations en VA */
+      /* Champs d'informations en kVA */
       case "PREF":
       case "PCOUP":
+        log::add('mqttLinky', 'debug', __('Champ information en kVA', __FILE__));
+        $this->setSubType('numeric');
+        $this->setUnite('kVA');
+        $this->setGeneric_type('GENERIC_INFO');
+        break;
+      /* Champs d'informations en VA */
       case "SMAXSN":
       case "SMAXSN-1":
       case "SMAXSN1":

@@ -4,6 +4,9 @@
 >
 >If there is no information about the update, it means that it is only for documentation, translation or text updates.
 
+# 17/09/2024
+- Unit correction on two fields
+
 # 04/09/2024
 - Updating the library to version 1.0.5
 - New fields calculated: Total active power and per phase, Total three-phase current.
