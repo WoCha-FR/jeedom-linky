@@ -176,8 +176,8 @@ class mqttLinky extends eqLogic {
     if (self::isRunning()) {
       $return['state'] = 'ok';
     }
-    $port = jeedom::getUsbMapping(config::byKey('mqttLinky::port', __CLASS__));
-    if (@!file_exists($port)) {
+    $port = config::byKey('mqttLinky::port', __CLASS__);
+    if (empty($port) || $port == 'none') {
       $return['launchable'] = 'nok';
       $return['launchable_message'] = __('Le port n\'est pas configuré', __FILE__);
     }

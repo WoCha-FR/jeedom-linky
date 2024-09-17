@@ -6,6 +6,7 @@
 
 # 17/09/2024
 - Correction d'unité sur deux champs
+- Corrections pour PHP8
 
 # 03/09/2024
 - Mise à jour de la librairie en version 1.0.5
